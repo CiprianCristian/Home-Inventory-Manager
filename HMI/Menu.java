@@ -1,5 +1,6 @@
 package HMI;
 
+import java.io.IOException;
 import java.util.*;
 
 public class Menu {
@@ -7,14 +8,21 @@ public class Menu {
 	private int option;
 	private Scanner input = new Scanner(System.in);
 	public void Start() {
-		System.out.println("Choose the option:\n"
-				+ "1.Add Item\n"
-				+ "2.Remove Item\n"
-				+ "3.Print Item\n"
-				+ "4.Exit");
+		try {
+			ItemList.generateList();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		do {
-			System.out.print("You choose: ");
+			System.out.print("Choose the option:\n"
+					+ "1.Add Item\n"
+					+ "2.Remove Item\n"
+					+ "3.Print Items\n"
+					+ "4.Exit\n"
+					+ "You choose: ");
 			option = input.nextInt();
+			System.out.println();
 			this.Options(option);
 		} while(option != 4);
 		
@@ -40,17 +48,21 @@ public class Menu {
 	}
 	
 	private void Option1() {
-		System.out.print("Type the name of the item you wanna add.");
-		ItemList.addItem();
-		System.out.println("You just added an item.");
+		System.out.print("Type the name of the item you wanna add: ");
+		try {
+			ItemList.addItem();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	private void Option2() {
 		System.out.print("Type the index of the item you wanna remove: ");
-		ItemList.removeItem(input.nextInt());
-		if(ItemList.exists == true) {
-			System.out.println("You just removed an item.");
-		} else {
-			System.out.println("This item doesn't exist.");
+		try {
+			ItemList.removeItem(input.nextInt());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	private void Option3() {
