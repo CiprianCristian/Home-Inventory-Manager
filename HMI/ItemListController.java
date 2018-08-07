@@ -83,8 +83,8 @@ public class ItemListController extends Serializer {
 	public void printItems(LinkedList<Item> list) {
 		System.out.printf("You have %d item(s) on this category:\n", list.size());
 		for(Item i : list) {
-			System.out.printf("-Name: %s\tNumber: %s\tPrice: %s\tDate: %s\tOrigin: %s\tPhoto: %s\n",
-					i.getName(), i.getNumber(), i.getPrice(), i.getDate(), i.getOrigin(), i.getPhoto());
+			System.out.printf("-Number: %s\tName: %s\tPrice: %s\tDate: %s\tOrigin: %s\tPhoto: %s\n",
+					list.indexOf(i), i.getName(), i.getPrice(), i.getDate(), i.getOrigin(), i.getPhoto());
 		}
 		System.out.println();
 	}
