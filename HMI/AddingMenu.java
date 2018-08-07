@@ -1,27 +1,30 @@
 package HMI;
 
-import java.util.*;
+import java.util.Scanner;
 
-public class Menu {
-
+public class AddingMenu {
+	
 	private static int option;
 	private static Scanner input = new Scanner(System.in);
+	private static ItemListController list = new ItemListController();
 
-	public void Start() {
+	public static void Start() {
 		option = 0;
-		do {
+		System.out.println("The menu of Adding!");
+		while(option != 3) {
+			list.generateList();
+
 			System.out.print("Choose the option:\n"
-					+ "1.Add Items\n"
-					+ "2.Remove Items\n"
-					+ "3.Print Items\n"
-					+ "4.Exit\n"
+					+ "1.Add an item to a new list\n"
+					+ "2.Add an item\n"
+					+ "3.Back\n"
 					+ "You choose: ");
 			option = Integer.parseInt(input.nextLine());
 			System.out.println();
-			Options(option);
-		} while(option != 4);
+			Options();
+		}
 	}
-	private static void Options(int option) {
+	private static void Options() {
 		switch(option) {
 		case 1:
 			Option1();
@@ -32,27 +35,19 @@ public class Menu {
 		case 3:
 			Option3();
 			break;
-		case 4:
-			Option4();
-			break;
 		default:
 			OptionDefault();
 			break;
 		}
 	}
-	
 	private static void Option1() {
-		AddingMenu.Start();
+		list.addList();
 	}
 	private static void Option2() {
-		RemovingMenu.Start();
+		list.addItem();
 	}
 	private static void Option3() {
-		PrintingMenu.Start();
-	}
-	private static void Option4() {
-		System.out.println("The program will close...");
-		input.close();
+		System.out.println("Backing...\n");
 	}
 	private static void OptionDefault() {
 		System.out.println("This option doesn't exist yet!\n"

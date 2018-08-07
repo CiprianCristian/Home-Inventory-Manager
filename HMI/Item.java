@@ -4,8 +4,8 @@ import java.util.*;
 
 public class Item implements java.io.Serializable {
 	private String name;
-	private int number;
-	private int price;
+	private String number;
+	private String price;
 	private String date;
 	private String origin;
 	private String photo;
@@ -31,11 +31,11 @@ public class Item implements java.io.Serializable {
 	}
 	private void setNumber() {
 		System.out.print("Introduce the number of it: ");
-		this.number = Integer.parseInt(input.nextLine());
+		this.number = input.nextLine();
 	}
 	private void setPrice() {
 		System.out.print("Introduce the price of it: ");
-		this.price = Integer.parseInt(input.nextLine());
+		this.price = input.nextLine();
 	}
 	private void setDate() {
 		System.out.print("Introduce the date when you bought it: ");
@@ -53,10 +53,10 @@ public class Item implements java.io.Serializable {
 	public String getName() {
 		return this.name;
 	}
-	public int    getNumber() {
+	public String getNumber() {
 		return this.number;
 	}
-	public int    getPrice() {
+	public String getPrice() {
 		return this.price;
 	}
 	public String getDate() {
