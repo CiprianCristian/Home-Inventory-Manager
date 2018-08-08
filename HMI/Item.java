@@ -1,37 +1,27 @@
 package HMI;
-
 import java.util.*;
-
 public class Item implements java.io.Serializable {
 	private String name;
-	private String number;
 	private String price;
 	private String date;
 	private String origin;
 	private String photo;
-	
-	transient Scanner input = new Scanner(System.in);
-	
+	private String note;
+	transient Scanner input = new Scanner(System.in);	
 	public Item() {
 		setDatas();
-	}
-	
+	}	
 	private void setDatas() {
 		setName();
-		setNumber();
 		setPrice();
 		setDate();
 		setOrigin();
 		setPhoto();
-	}
-	
+		setNote();
+	}	
 	private void setName() {
 		System.out.print("Introduce the name of it: ");
 		this.name = input.nextLine();
-	}
-	private void setNumber() {
-		System.out.print("Introduce the number of it: ");
-		this.number = input.nextLine();
 	}
 	private void setPrice() {
 		System.out.print("Introduce the price of it: ");
@@ -49,12 +39,15 @@ public class Item implements java.io.Serializable {
 		System.out.print("Introduce a photo of it (ex: photo.img) : ");
 		this.photo = input.nextLine();
 	}
-	
+	private void setNote() {
+		System.out.print("Introduce a note of it: ");
+		this.note = input.nextLine();
+	}
 	public String getName() {
 		return this.name;
 	}
-	public String getNumber() {
-		return this.number;
+	public String getNote() {
+		return this.note;
 	}
 	public String getPrice() {
 		return this.price;
@@ -67,9 +60,5 @@ public class Item implements java.io.Serializable {
 	}
 	public String getPhoto() {
 		return this.photo;
-	}
-	
-	public String toString() {
-		return String.format("%s %d %d %s %s %s",name,number,price,date,origin,photo);
-	}
+	}	
 }

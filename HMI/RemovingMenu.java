@@ -1,19 +1,14 @@
 package HMI;
-
 import java.util.Scanner;
-
 public class RemovingMenu {
-	
 	private static int option;
 	private static Scanner input = new Scanner(System.in);
 	private static ItemListController list = new ItemListController();
-
 	public static void Start() {
 		option = 0;
 		System.out.println("The menu of Removing!");
 		while(option != 3) {
 			list.generateList();
-
 			System.out.print("Choose the option:\n"
 					+ "1.Remove a list\n"
 					+ "2.Remove an item\n"
